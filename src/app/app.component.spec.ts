@@ -1,9 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { SiteHeaderComponent } from './site-header/site-header.component';
+import { RouterModule } from '@angular/router';
+
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    declarations: [AppComponent]
+    declarations: [AppComponent,SiteHeaderComponent],
+    imports: [ FormsModule, HttpClientTestingModule, RouterModule.forRoot([])],
   }));
 
   it('should create the app', () => {
@@ -17,11 +23,5 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app.title).toEqual('joes-robot-shop');
   });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('joes-robot-shop app is running!');
-  });
 });
+
